@@ -1,77 +1,130 @@
-# Student Performance Analysis & Risk Detection System
+# 🎓 Student Performance Analysis & Risk Detection System
 
 ## Overview
-An end-to-end data science system that analyzes student academic performance using real-world data from the **UCI Machine Learning Repository** (Cortez et al., 2008) to identify at-risk students and recommend early interventions.
 
-This is not just a prediction script — it's a decision support system built for school administration.
+An end-to-end data science project that analyzes student academic performance using real-world data from the **UCI Machine Learning Repository** to identify at-risk students and enable early intervention.
+
+This project goes beyond basic prediction — it acts as a **prototype decision support tool** for school administration.
+
+---
+
+## Problem Statement
+
+Schools often identify struggling students too late.
+This project aims to proactively detect at-risk students using data-driven insights, allowing timely academic or attendance-based interventions.
 
 ---
 
 ## Dataset
-- **Source:** UCI ML Repository — [Student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
-- **Citation:** Cortez, P. (2008). Student Performance. UCI Machine Learning Repository. https://doi.org/10.24432/C5TG7T
-- **Original size:** 395 Portuguese secondary school students
-- **Features used:** Attendance (derived from absences), Maths (G3), Science (G2), English (G1), Result (Pass if G3 ≥ 10)
-- **Realistic pass rate:** ~67%
 
-> Raw data mapped via `converter.py` from `student-mat.csv` to pipeline-compatible format.
+* **Source:** UCI ML Repository — Student Performance Dataset
+* **Citation:** Cortez, P. (2008). Student Performance
+* **Size:** 395 Portuguese secondary school students
+* **Features used:**
 
----
+  * Attendance (derived from absences)
+  * Maths (G3), Science (G2), English (G1)
+  * Result (Pass if G3 ≥ 10)
+* **Pass rate:** ~67%
 
-## Key Findings (from UCI data)
-- Students with <60% attendance have a **52.1% failure rate**
-- **Average Score** is the stronger predictor of passing (r=0.76) — not attendance
-- Average marks gap between Fail and Pass students: **30 points**
-- High attendance band still had 94 failures — proves attendance alone is insufficient
+> Raw data is converted using `converter.py` into a pipeline-ready dataset.
 
 ---
 
-## Technologies
-- Python, pandas, NumPy
-- scikit-learn (Logistic Regression, Random Forest, cross-validation)
-- matplotlib, seaborn
-- Streamlit (web dashboard)
+## Key Findings
+
+* Students with <60% attendance have a **52.1% failure rate**
+* **Average Score** is a stronger predictor of passing (r ≈ 0.76) than attendance
+* Average marks gap between Fail and Pass students: **~30 points**
+* High attendance alone does not guarantee success → academic performance matters more
+
+---
+
+## Technologies Used
+
+* Python, pandas, NumPy
+* scikit-learn (Logistic Regression, Random Forest, cross-validation)
+* matplotlib, seaborn
+* Streamlit (interactive dashboard)
 
 ---
 
 ## Project Structure
+
+```
 student-performance-analysis/
-│
 ├── data/
-│   └── student_data.csv        # Converted UCI dataset
-│
-├── app.py                      # Streamlit dashboard
-├── analysis.py                 # Full CLI pipeline
-├── converter.py                # UCI → pipeline format mapper
-├── student-mat.csv             # Raw UCI source file
+│   └── student_data.csv
+├── app.py
+├── analysis.py
+├── converter.py
+├── student-mat.csv
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
 ## Features
-- **Feature Engineering** — Total, Average, WeightedScore (Maths×0.4), AttXAvg interaction, SubjectStd
-- **Model Comparison** — Logistic Regression vs Random Forest with 5-fold stratified CV
-- **Threshold Tuning** — Optimized for at-risk recall, not raw accuracy
-- **Error Analysis** — False negatives examined with avg attendance and score
-- **Streamlit Dashboard** — Upload CSV, view insights, compare models, predict students, download HTML report
+
+* **Feature Engineering**
+
+  * Total, Average, WeightedScore, AttXAvg interaction, SubjectStd
+
+* **Model Comparison**
+
+  * Logistic Regression vs Random Forest with cross-validation
+
+* **Threshold Tuning**
+
+  * Optimized for detecting at-risk students (recall-focused)
+
+* **Error Analysis**
+
+  * Analysis of misclassified students to understand edge cases
+
+* **Streamlit Dashboard**
+
+  * Upload CSV
+  * Visualize insights
+  * Compare models
+  * Predict student risk
+  * Generate downloadable HTML report
+
+* **Automated Report Generation**
+
+  * Produces a professional HTML report with insights, model performance, and recommendations
+
+---
+
+## Model Performance
+
+| Model               | Accuracy | CV F1 Score |
+| ------------------- | -------- | ----------- |
+| Logistic Regression | ~1.00    | ~0.99       |
+| Random Forest       | ~1.00    | ~1.00       |
+
+> ⚠️ Note: High accuracy is influenced by strong correlation between features and target.
 
 ---
 
 ## How to Run
 
-### Option 1: Streamlit App (recommended)
+### Option 1: Streamlit App (Recommended)
+
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
 ### Option 2: CLI Pipeline
+
 ```bash
 python analysis.py
 ```
 
-### Re-convert raw UCI data (optional)
+### Convert Raw Dataset (Optional)
+
 ```bash
 python converter.py
 ```
@@ -79,4 +132,21 @@ python converter.py
 ---
 
 ## Deployment
-Live on Streamlit Cloud: `[add your URL after deploying]`
+
+Live Demo: *(Add your Streamlit link here after deployment)*
+
+---
+
+## Future Improvements
+
+* Remove data leakage for more realistic model evaluation
+* Add real-time student monitoring system
+* Integrate database + authentication
+* Deploy with API backend
+
+---
+
+## Author
+
+Chirag Sharma
+BTech IT | Aspiring Data Analyst / Data Scientist
