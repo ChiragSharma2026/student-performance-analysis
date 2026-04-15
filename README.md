@@ -33,19 +33,16 @@ This is not just a prediction script — it's a decision support system built fo
 - Streamlit (web dashboard)
 
 ---
-
-## Project Structure
+Project Structure
 student-performance-analysis/
-│
-├── data/
-│   └── student_data.csv        # Converted UCI dataset
-│
-├── app.py                      # Streamlit dashboard
-├── analysis.py                 # Full CLI pipeline
-├── converter.py                # UCI → pipeline format mapper
-├── student-mat.csv             # Raw UCI source file
-├── requirements.txt
-└── README.md
+│── data/
+│   └── student_data.csv
+│── app.py
+│── analysis.py
+│── converter.py
+│── student-mat.csv
+│── requirements.txt
+│── README.md
 
 ---
 
