@@ -78,4 +78,4 @@ python converter.py
 ---
 
 ## Deployment
-Live on Streamlit Cloud: `[add your URL after deploying]`
+Live on Streamlit Cloud: `(https://student-risk-analyzer.streamlit.app/)`
