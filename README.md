@@ -33,18 +33,20 @@ This is not just a prediction script — it's a decision support system built fo
 - Streamlit (web dashboard)
 
 ---
-Project Structure
+## Project Structure
+```
 student-performance-analysis/
-│── data/
+├── data/
 │   └── student_data.csv
-│── app.py
-│── analysis.py
-│── converter.py
-│── student-mat.csv
-│── requirements.txt
-│── README.md
-
----
+├── analysis.py
+├── app.py
+├── converter.py
+├── generate_data.py
+├── student-mat.csv
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
 ## Features
 - **Feature Engineering** — Total, Average, WeightedScore (Maths×0.4), AttXAvg interaction, SubjectStd
