@@ -78,4 +78,4 @@ python converter.py
 ---
 
 ## Deployment
-Live on Streamlit Cloud: `(https://student-risk-analyzer.streamlit.app/)`
+Live on Streamlit Cloud: (https://student-risk-analyzer.streamlit.app/)
